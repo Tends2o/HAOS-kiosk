@@ -42,7 +42,7 @@ please file an
 \*\*include full details of your setup (including computer hardware and
 display type details)and what you did along with a complete log.
 
-You can also use the `screenshot` REST API or keybinding (`Ctl+Alt+k`) or
+Note you can use the `screenshot` REST API or keybinding (`Ctl+Alt+k`) or
 touch gesture (Quadruple 3 finger tap) to save a screenshot to
 `/media/screenshots`
 
@@ -74,18 +74,10 @@ ______________________________________________________________________
 4. Press **Start** to run the Add-on.
 
 **If you are having trouble installing the add-on or getting displays and
-touchscreens working, please see the github issues page
-(https://github.com/puterboy/HAOS-kiosk/issues)as many common issues have
+touchscreens working, please see the **TROUBLESHOOTING** section below as
+well as the github issues page
+(https://github.com/puterboy/HAOS-kiosk/issues) as many common issues have
 already been addressed and resolved**
-
-### Notes
-
-- If screen is not working on an RPi3, try adding the following lines to
-  the `[pi3]` section of your `config.txt` on the boot partition:
-  ```
-  dtoverlay=vc4-fkms-v3d
-  max_framebuffers=2
-  ```
 
 ______________________________________________________________________
 
@@ -985,3 +977,22 @@ Luakit modes and commands are similar to vi
 
 See [luakit documentation](https://wiki.archlinux.org/title/Luakit) for
 further usage information and available commands.
+
+______________________________________________________________________
+
+## TROUBLESHOOTING
+
+- If the display is not working on an RPi3, try adding the following lines
+  to the `[pi3]` section of your `config.txt` on the boot partition:
+
+  ```
+  dtoverlay=vc4-fkms-v3d
+  max_framebuffers=2
+  ```
+
+- If you see black borders (underscan) around the display on a Raspberry Pi
+  you can disable overscan in `config.txt` on the boot partition:
+
+  ```
+  disable_overscan=1
+  ```
